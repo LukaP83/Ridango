@@ -21,9 +21,10 @@ public class Main {
 
         Map<String, String[]> route_direction = get_route_direction();
         List<String[]> direction_route_time = get_direction_route_time(stop_id, route_direction);
+        route_direction = null;
         Map<String, List<LocalTime>> bus_arrivals = all_arrivals(direction_route_time);
-        List<String> req_arrivals = get_req_arrivals(num_buses, abs_rel,time,bus_arrivals);
-
+        direction_route_time = null;
+        List<String> req_arrivals = get_req_arrivals(num_buses, abs_rel, time, bus_arrivals);
 
         return req_arrivals;
     }
